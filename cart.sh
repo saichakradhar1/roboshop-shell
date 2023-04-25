@@ -14,6 +14,7 @@ echo -e "\e[36m>>>>>>>>>>>>>>Configuring roboshop artifacts<<<<<<<<<<<<<<<<<\e[0
 curl -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart.zip
 cd /app
 
+
 echo -e "\e[36m>>>>>>>>>>>>>>Unzip user.zip file<<<<<<<<<<<<<<<<<\e[0m"
 unzip /tmp/cart.zip
 
