@@ -23,7 +23,7 @@ echo -e "\e[36m>>>>>>>>>>>>>>Install Node js<<<<<<<<<<<<<<<<<\e[0m"
 npm install
 cp   /root/roboshop-shell/cart.service /etc/systemd/system/cart.service
 
-echo -e "\e[36m>>>>>>>>>>>>>>Start Catalogue Service<<<<<<<<<<<<<<<<<\e[0m"
+echo -e "\e[36m>>>>>>>>>>>>>>Start cart Service<<<<<<<<<<<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable cart
 systemctl start cart
