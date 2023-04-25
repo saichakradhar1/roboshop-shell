@@ -21,7 +21,7 @@ echo -e "\e[36m>>>>>>>>>>>>>>Installing my sql<<<<<<<<<<<<<<<<<\e[0m"
 yum install mysql -y
 
 echo -e "\e[36m>>>>>>>>>>>>>>Load schema<<<<<<<<<<<<<<<<<\e[0m"
-mysql -h mysql-dev.rdevops72.online -uroot -pRoboShop@1 < /app/schema/shipping.sql
+mysql -h mysql-dev.rdevops72.online-uroot -pRoboShop@1 < /app/schema/shipping.sql
 
 echo -e "\e[36m>>>>>>>>>>>>>>Setup systemd service <<<<<<<<<<<<<<<<<\e[0m"
 cp  /root/roboshop-shell/shipping.service /etc/systemd/system/shipping.service
