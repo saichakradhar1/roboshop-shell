@@ -11,11 +11,11 @@ rm -rf /app
 mkdir /app
 
 echo -e "\e[36m>>>>>>>>>>>>>>Configuring roboshop artifacts<<<<<<<<<<<<<<<<<\e[0m"
-curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip
+curl -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart.zip
 cd /app
 
 echo -e "\e[36m>>>>>>>>>>>>>>Unzip user.zip file<<<<<<<<<<<<<<<<<\e[0m"
-unzip /tmp/user.zip
+unzip /tmp/cart.zip
 
 echo -e "\e[36m>>>>>>>>>>>>>>Install nodejs Dependencies<<<<<<<<<<<<<<<<<\e[0m"
 npm install
