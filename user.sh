@@ -11,6 +11,7 @@ curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip
 cd /app
 echo -e "\e[36m>>>>>>>>>>>>>>Unzip user.zip file<<<<<<<<<<<<<<<<<\e[0m"
 unzip /tmp/user.zip
+
 cd /app
 npm install
 echo -e "\e[36m>>>>>>>>>>>>>>copying files <<<<<<<<<<<<<<<<<\e[0m"
