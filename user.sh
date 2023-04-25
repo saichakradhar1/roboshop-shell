@@ -14,6 +14,7 @@ unzip /tmp/user.zip
 
 cd /app
 npm install
+
 echo -e "\e[36m>>>>>>>>>>>>>>copying files <<<<<<<<<<<<<<<<<\e[0m"
 cp /root/roboshop-shell/user.service /etc/systemd/system/user.service
 systemctl daemon-reload
