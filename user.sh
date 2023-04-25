@@ -12,7 +12,6 @@ cd /app
 echo -e "\e[36m>>>>>>>>>>>>>>Unzip user.zip file<<<<<<<<<<<<<<<<<\e[0m"
 unzip /tmp/user.zip
 
-
 cd /app
 npm install
 echo -e "\e[36m>>>>>>>>>>>>>>copying files <<<<<<<<<<<<<<<<<\e[0m"
