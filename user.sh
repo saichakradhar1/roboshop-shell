@@ -5,10 +5,12 @@ echo -e "\e[36m>>>>>>>>>>>>>>Installing Node js repos<<<<<<<<<<<<<<<<<\e[0m"
 yum install nodejs -y
 echo -e "\e[36m>>>>>>>>>>>>>>Adding user<<<<<<<<<<<<<<<<<\e[0m"
 useradd roboshop
+
 mkdir /app
 echo -e "\e[36m>>>>>>>>>>>>>>Configuring roboshop artifacts<<<<<<<<<<<<<<<<<\e[0m"
 curl -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip
 cd /app
+
 echo -e "\e[36m>>>>>>>>>>>>>>Unzip user.zip file<<<<<<<<<<<<<<<<<\e[0m"
 unzip /tmp/user.zip
 
