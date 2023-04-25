@@ -29,4 +29,4 @@ cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 echo -e "\e[36m>>>>>>>>>>>>>>Install mongodb shell<<<<<<<<<<<<<<<<<\e[0m"
 yum install mongodb-org-shell -y
 echo -e "\e[36m>>>>>>>>>>>>>>Install schema<<<<<<<<<<<<<<<<<\e[0m"
-mongo --host mongodb-dev.rdevopsb72.online </app/schema/user.js
+mongo --host mongodb-dev.rdevops72.online </app/schema/user.js
