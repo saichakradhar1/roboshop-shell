@@ -12,7 +12,6 @@ echo -e "\e[36m>>>>>>>>>>>>>>Download App content<<<<<<<<<<<<<<<<<\e[0m"
 curl -L -o /tmp/shipping.zip https://roboshop-artifacts.s3.amazonaws.com/shipping.zip
 cd /app
 unzip /tmp/shipping.zip
-cd /app
 
 echo -e "\e[36m>>>>>>>>>>>>>>Download maven dependencies<<<<<<<<<<<<<<<<<\e[0m"
 mvn clean package
