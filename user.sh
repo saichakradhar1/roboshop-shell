@@ -7,6 +7,7 @@ cd /app
 unzip /tmp/user.zip
 cd /app
 npm install
+
 cp /root/roboshop-shell/user.service /etc/systemd/system/user.service
 systemctl daemon-reload
 systemctl enable user
