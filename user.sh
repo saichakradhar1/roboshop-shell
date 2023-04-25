@@ -7,11 +7,11 @@ cd /app
 unzip /tmp/user.zip
 cd /app
 npm install
-cp user.service /etc/systemd/system/user.service
+cp /root/roboshop-shell/user.service /etc/systemd/system/user.service
 systemctl daemon-reload
 systemctl enable user
 systemctl start user
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 yum install mongodb-org-shell -y
 mongo --host mongodb-dev.rdevopsb72.online </app/schema/user.js
