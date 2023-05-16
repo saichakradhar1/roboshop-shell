@@ -1,18 +1,17 @@
-echo -e "\e[36m>>>>>>>>>>>>>>Install Golang<<<<<<<<<<<<<<<<<\e[0m"
-yum install golang -y
-echo -e "\e[36m>>>>>>>>>>>>>>Add Application user<<<<<<<<<<<<<<<<<\e[0m"
-useradd roboshop
-mkdir /app
-curl -L -o /tmp/dispatch.zip https://roboshop-artifacts.s3.amazonaws.com/dispatch.zip
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
+component=dispatch
+
+func_print_head "Install golang"
+yum install golang -y  &>>$log_file
+func_stat_check $?
+func_app_prereq
+
 cd /app
-unzip /tmp/dispatch.zip
-cd /app
-go mod init dispatch
+go mod init ${component}
 go get
 go build
-cp /root/roboshop-shell/dispatch.service /etc/systemd/system/dispatch.service
 
-echo -e "\e[36m>>>>>>>>>>>>>>Restart dispatch<<<<<<<<<<<<<<<<<\e[0m"
-systemctl daemon-reload
-systemctl enable dispatch
-systemctl start dispatch
+func_systemd_setup

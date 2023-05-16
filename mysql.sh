@@ -1,15 +1,31 @@
-echo -e "\e[36m>>>>>>>>>>>>>>Disable  my sql<<<<<<<<<<<<<<<<<\e[0m"
-dnf module disable mysql -y
-echo -e "\e[36m>>>>>>>>>>>>>>Copying My SqL Repo file<<<<<<<<<<<<<<<<<\e[0m"
-cp /root/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+mysql_root_password=$1
 
-echo -e "\e[36m>>>>>>>>>>>>>>Install My Sql<<<<<<<<<<<<<<<<<\e[0m"
-yum install mysql-community-server -y
+if [ -z "$mysql_root_password" ]; then
+  echo Input MySQL Root Password Missing
+  exit 1
+fi
 
-echo -e "\e[36m>>>>>>>>>>>>>>Start My sql<<<<<<<<<<<<<<<<<\e[0m"
-systemctl enable mysqld
-systemctl restart mysqld
 
-echo -e "\e[36m>>>>>>>>>>>>>>Reset My sql Password<<<<<<<<<<<<<<<<<\e[0m"
-mysql_secure_installation --set-root-pass RoboShop@1
-mysql -uroot -pRoboShop@1
+func_print_head "Disable MySQL 8 Version"
+dnf module disable mysql -y &>>$log_file
+func_stat_check $?
+
+func_print_head "Copy MySQL Repo File"
+cp ${script_path}/mysql.repo /etc/yum.repos.d/mysql.repo &>>$log_file
+func_stat_check $?
+
+func_print_head "Install MySQL"
+yum install mysql-community-server -y &>>$log_file
+func_stat_check $?
+
+func_print_head "Start MySQL"
+systemctl enable mysqld &>>$log_file
+systemctl restart mysqld &>>$log_file
+func_stat_check $?
+
+func_print_head "Reset MySQL Password"
+mysql_secure_installation --set-root-pass $mysql_root_password &>>$log_file
+func_stat_check $?
