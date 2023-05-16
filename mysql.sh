@@ -1,4 +1,4 @@
-script=$(realpath "$0")
+ script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
 mysql_root_password=$1
@@ -10,7 +10,7 @@ fi
 
 
 func_print_head "Disable MySQL 8 Version"
-dnf module disable mysql -y &>>$log_file
+dnf module disable mysql -y  &>>$log_file
 func_stat_check $?
 
 func_print_head "Copy MySQL Repo File"
